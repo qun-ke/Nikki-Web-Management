@@ -1,0 +1,35 @@
+server:
+  port: 8081
+
+#配置数据库连接信息
+spring:
+  application:
+    name: Nikki-Web-Management
+  datasource:
+    url: jdbc:mysql://local:数据库端口/数据库名称
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username:
+    password:
+  servlet:
+    multipart:
+      #最大单个文件大小
+      max-file-size: 10MB
+      #最大请求大小（包括所有文件和数据）
+      max-request-size: 100MB
+
+#配置MyBatis的日志输出
+Mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    org.springframework.jdbc.support.JdbcTransactionManager: debug
+
+#阿里云OSS
+aliyun:
+  oss:
+    endpoint: https://oss-cn-beijing.aliyuncs.com
+    bucketName: nikki-managment
+    region: cn-beijing
